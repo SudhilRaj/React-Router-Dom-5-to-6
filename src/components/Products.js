@@ -1,10 +1,11 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { products } from '../data';
 
 const Products = () => {
 
-  const history = useHistory();
+// There is no useHistory or Redirect, instead we have useNavigate
+  const navigate = useNavigate();
 
   return (
     <div className="p-3">
@@ -16,7 +17,7 @@ const Products = () => {
 						<p>{product.supplier}</p>
 						<p>{product.desc}</p>
 						<small>Date: {product.added_date}</small> 
-						<small className='float-end' onClick={() => history.push(`/products/${product.id}`)}>View More</small>
+						<small className='float-end' onClick={() => navigate(`/products/${product.id}`)}>View More</small>
 					</div>
 				))
 			}

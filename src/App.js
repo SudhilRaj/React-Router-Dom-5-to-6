@@ -8,7 +8,7 @@ import ProductDetails from './components/ProductDetails';
 import Comments from './components/Comments';
 import CommentDetails from './components/CommentDetails';
 
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import { CommenstProvider } from './context/CommentsContext';
 
 function App() {
@@ -17,26 +17,20 @@ function App() {
 		<CommenstProvider>
 			<BrowserRouter>
 				<Header />
-				<Switch>
-					<Route exact path="/">
-						<Home />
-					</Route>
-					<Route exact path="/products">
-						<Products />
-					</Route>
-					<Route path="/products/:id">
-						<ProductDetails />
-					</Route>
-					<Route exact path="/comments">
-						<Comments />
-					</Route>
-					<Route path="/comments/:id">
-						<CommentDetails />
-					</Route>
-					<Route path="/about">
-						<About />
-					</Route>
-				</Switch>
+				{/*  - Switch changed to routes
+				     - Component should added in element attribute as JSX
+					 - No exact prop required
+					 - Nested routes are relative - So need to add * at the ende of such routes
+					 - Passing params is same as in 5
+				*/}
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/products" element={<Products />} />
+					<Route path="/products/:id" element={<ProductDetails />} />
+					<Route path="/comments" element={<Comments />} />
+					<Route path="/comments/:id/*" element={<CommentDetails />} />
+					<Route path="/about" element={<About />} />
+				</Routes>
 				{/* <Footer /> */}
 			</BrowserRouter>
 		</CommenstProvider>

@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
 import { commentsContext } from '../context/CommentsContext';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Comments = () => {
  
 const [comments, loading] = useContext(commentsContext);
-const history = useHistory();
+// There is no useHistory or Redirect, instead we have useNavigate
+const navigate = useNavigate();
 
   return (
     <div className='p-3'>
@@ -17,7 +18,7 @@ const history = useHistory();
                     <div key={comment.id} className='col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 p-2' style={{border: '1px solid #000'}}>
                         <p>{comment.name}</p>
                         <small>{comment.email}</small> <br />
-                        <button className='btn btn-primary btn-sm' onClick={() => history.push(`/comments/${comment.id}`)}>Details</button>
+                        <button className='btn btn-primary btn-sm' onClick={() => navigate(`/comments/${comment.id}`)}>Details</button>
                     </div>
                 ))
                 :

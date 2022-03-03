@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Route, useParams } from 'react-router-dom';
+import { Route, Routes, useParams } from 'react-router-dom';
 import OfferProduct from './OfferProduct';
 
 const CommentDetails = () => {
@@ -34,9 +34,12 @@ const CommentDetails = () => {
                 </div>
             }
 
-            <Route path={`/comments/${id}/offers`}>
-                <OfferProduct />
-            </Route>
+            {/* - For nested routes on we need to wrap them inside Routes
+                - Since nested routes are relative, just need to pass the remaining part of the route
+            */}
+            <Routes>
+                <Route path={`/offers`} element={<OfferProduct />} />
+            </Routes>
         </div>
     )
 }
