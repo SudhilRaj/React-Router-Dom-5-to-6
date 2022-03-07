@@ -18,7 +18,8 @@ const navigate = useNavigate();
                     <div key={comment.id} className='col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 p-2' style={{border: '1px solid #000'}}>
                         <p>{comment.name}</p>
                         <small>{comment.email}</small> <br />
-                        <button className='btn btn-primary btn-sm' onClick={() => navigate(`/comments/${comment.id}`)}>Details</button>
+                        <button className='btn btn-primary btn-sm' onClick={() => navigate(`${comment.id}`)}>Details</button>
+                        {/* Since nested routes are relative we don't need to pass the complete path */}
                     </div>
                 ))
                 :

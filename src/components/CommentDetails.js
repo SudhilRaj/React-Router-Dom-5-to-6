@@ -38,7 +38,7 @@ const CommentDetails = () => {
                 - Since nested routes are relative, just need to pass the remaining part of the route
             */}
             <Routes>
-                <Route path={`/offers`} element={<OfferProduct />} />
+                <Route path={`offers`} element={<OfferProduct />} />
             </Routes>
         </div>
     )

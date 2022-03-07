@@ -20,8 +20,8 @@ function App() {
 				{/*  - Switch changed to routes
 				     - Component should added in element attribute as JSX
 					 - No exact prop required
-					 - Nested routes are relative - So need to add * at the ende of such routes
-					 - Passing params is same as in 5
+					 - Nested routes are relative - So need to add * at the end of such routes
+					 - Passing params is same as in V5
 				*/}
 				<Routes>
 					<Route path="/" element={<Home />} />
